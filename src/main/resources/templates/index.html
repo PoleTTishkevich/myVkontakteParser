@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Spring Security Example</title>
+</head>
+<body>
+	<h1>Welcome!</h1>
+	<a href="login.html"
+		th:href="@{https://oauth.vk.com/authorize(client_id=${session.client_id},redirect_uri=${session.redirect_uri},response_type=${session.response_type})}">Enter
+		from vk</a>
+	<p>
+		Click <a th:href="@{/hello}">here</a> to see a greeting.
+	</p>
+	<br>
+	<p>
+		Click <a th:href="@{/login}">here</a> to login directly.
+	</p>
+	<br>
+	<p>
+		Click <a th:href="@{/registration}">here</a> to registrate
+	</p>
+</body>
+</html>

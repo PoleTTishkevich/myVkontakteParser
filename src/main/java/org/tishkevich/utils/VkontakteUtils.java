@@ -49,18 +49,19 @@ public class VkontakteUtils {
 		for (int i = 0; i < res.length; i++) {
 			if (res[i].length() > 1) {
 				resList.add(res[i]);
-				System.out.println(res[i]);
 			}
 		}
-		VkontakteAccount newAcc=new VkontakteAccount();
-		newAcc.setId(resList.get(resList.indexOf("id")+1));
-		newAcc.setFirstName(resList.get(resList.indexOf("first_name")+1));
-		newAcc.setLastName(resList.get(resList.indexOf("last_name")+1));
-		newAcc.setCity(resList.get(resList.indexOf("title")+1));
-		int start=resList.indexOf("https")+1;
-		int finish=resList.indexOf("verified");
+		VkontakteAccount newAcc = new VkontakteAccount();
+		newAcc.setUsername(resList.get(resList.indexOf("id") + 1));
+		newAcc.setFirstName(resList.get(resList.indexOf("first_name") + 1));
+		newAcc.setLastName(resList.get(resList.indexOf("last_name") + 1));
+		newAcc.setCity(resList.get(resList.indexOf("title") + 1));
+		newAcc.setActive(true);
+		newAcc.setPassword(code);
+		int start = resList.indexOf("https") + 1;
+		int finish = resList.indexOf("verified");
 		StringBuilder photo = new StringBuilder("https:/");
-		for (int i=start;i<finish;i++) {
+		for (int i = start; i < finish; i++) {
 			photo.append(resList.get(i));
 		}
 		newAcc.setPhoto(photo.toString());
